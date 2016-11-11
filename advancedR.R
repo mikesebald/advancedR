@@ -21,6 +21,8 @@ pmap_chr(list(
   list("uno", "dos", "tres")
 ), paste)
 
+
+
 reduce(c(1, 3, 5, 7), function(x, y){
   message("x is ", x)
   message("y is ", y)
@@ -44,4 +46,36 @@ every(1:20, function(x){
 some(1:20, function(x){
   x %% 2 == 0
 })
+
+
+
+mult_three_n <- function(x, y, z){
+  x * y * z
+}
+mult_by_15 <- partial(mult_three_n, x = 3, y = 5)
+mult_by_15(z = 4)
+
+
+message("ABC", "DEF")
+suppressMessages(message("ABC"))
+
+
+
+fib <- function(n){
+  stopifnot(n > 0)
+  if(n == 1){
+    0
+  } else if(n == 2){
+    1
+  } else {
+    fib(n - 1) + fib(n - 2)
+  }
+}
+
+fib(12)
+
+map_dbl(1:12, fib)
+
+
+
 
